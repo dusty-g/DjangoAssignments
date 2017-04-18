@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            h1{
+                text-align: center;
+            }
+            .word-container{
+                
+                width: 75%;
+                height: 120px;
+                margin: 20px auto;
+                border: 1px solid black;
+            }
+            .word{
+                width: 75%;
+                height: 1.25em;
+                margin: 20px auto;
+                border: 2px solid black;
+            }
+            input{
+                display: block;
+                margin: 10px auto;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Random Word # {{request.session.count}}</h1>
+        <div class="word-container">
+            <div class="word">
+                {{request.session.word}}
+            </div>
+            <form action="/generate">
+                <input type="submit" name="generate" value="Generate">
+            </form>
+            <form action="/reset">
+                <input type="submit" name="generate" value="Reset">
+            </form>
+        </div>
+    </body>
+</html>

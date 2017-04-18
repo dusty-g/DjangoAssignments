@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {%load staticfiles%}
+        <link href="{%static 'gold_app/css/style.css'%}" rel="stylesheet">
+        <!--<link href="../static/css/style.css" rel="stylesheet">-->
+    </head>
+    <body>
+        <div class="gold-count">
+            <h4>Gold: {{gold}}</h4>
+            
+            <form action = "/reset" method="post">
+            {% csrf_token %}
+                <input type="submit" value="Reset">
+            </form>
+        </div>
+        <div class="buildings">
+            <div class="building">
+                <h2>Farm</h2>
+                <h4>(earns 10 to 20 gold)</h4>
+                <form action="/process" method="post">
+                {% csrf_token %}
+                    <input type="hidden" name="building" value="farm">
+                    <input type="submit" name="button" value="Gold!">
+                </form>
+            </div>
+            <div class="building">
+                <h2>Cave</h2>
+                <h4>(earns 5 to 10 gold)</h4>
+                <form action="/process" method="post">
+                {% csrf_token %}
+                    <input type="hidden" name="building" value="cave">
+                    <input type="submit" name="button" value="Gold!">
+                </form>
+            </div>
+            <div class="building">
+                <h2>House</h2>
+                <h4>(earns 2 to 5 gold)</h4>
+                <form action="/process" method="post">
+                {% csrf_token %}
+                    <input type="hidden" name="building" value="house">
+                    <input type="submit" name="button" value="Gold!">
+                </form>
+            </div>
+            <div class="building">
+                <h2>Casino</h2>
+                <h4>(earns -50 to 50 gold)</h4>
+                <form action="/process" method="post">
+                {% csrf_token %}
+                    <input type="hidden" name="building" value="casino">
+                    <input type="submit" name="button" value="Gold!">
+                </form>
+            </div>
+        </div>
+        <div class="activities">
+            <h6>Activities</h6>
+            {%for i in activities%}
+            <p>{{i}}</p>
+            {%endfor%}
+           
+        </div>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+        .banner{background-color: lightgreen;}
+        </style>
+    </head>
+    <body>
+        <div class="banner">
+            You have submitted this form {{request.session.count}} times
+        </div>
+        <div class="container">
+            Name:  {{request.session.name}}<br>
+            Dojo Location: {{request.session.location}}<br>
+            Favorite Language: {{request.session.language}}<br>
+            Comment: {{request.session.comment}}
+            <br><a href="/">Go Back</a>
+        </div>
+    </body>
+</html>

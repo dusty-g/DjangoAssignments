@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Index.html!</h1>
+    <form action="/create" method="post">
+        {% csrf_token %}
+        <input type="text" name="first_name">
+        <input type="submit" value="submit">
+    </form>
+
+    </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+    </head>
+    <body>
+    <h1>Surprise!</h1>
+
+    <form action="/process" method="post">
+    {% csrf_token %}
+        <fieldset>
+            Pick a number: <input type="text" name="number" value="">
+            <br>
+            <input type="submit" name="submit" value="Go!">
+
+        </fieldset>
+    </form>
+    </body>
+</html>

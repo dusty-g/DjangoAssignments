@@ -1,0 +1,10 @@
+form{
+    display: inline-block;
+}
+.gold-count h4{
+    display: inline-block
+}
+.building{
+    display: inline-block;
+    margin: 30px;
+}
