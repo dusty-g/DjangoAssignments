@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+    </head>
+    <body>
+        <h1>WALL</h1>
+        <div class="users">
+            {%for user in users%}
+            {%if user.id == 14 %}
+            <p>{{user.first_name}}&nbsp;{{user.last_name}}&nbsp;id = {{user.id}}</p>
+            {%endif%}
+            {%endfor%}
+        </div>
+        <div class="messages">
+            {%for message in messages%}
+                <p>{{message.message}} id = {{message.id}} user = {{message.user_id}}</p>
+                {%for comment in comments%}
+                    {% if comment.message_id == message.id%}
+                        <p>{{comment.comment}}</p>
+                    {% endif %}
+                {%endfor%}
+            {%endfor%}
+                
+        </div>
+
+    </body>
+</html>
