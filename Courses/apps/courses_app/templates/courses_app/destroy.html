@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body>
+        <h1>Are you sure you want to delete?</h1>
+        <p>Name: {{course.name}}</p>
+        <p>Description: {{course.description}}</p>
+
+        <form action="/">
+            <input type="submit" name="cancel" value="Cancel">
+        </form>
+        <form action="/delete/{{course.id}}">
+            <input type="submit" name="yes" value="Delete">
+        </form>
+    </body>
+</html>
