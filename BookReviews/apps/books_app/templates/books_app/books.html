@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .all_titles, .recent{
+                display: inline-block;
+                width: 45%
+            }
+            .all_titles{
+                height: 300px;
+                overflow: scroll;
+                vertical-align: top;
+                border: 2px dotted black;
+            }
+            .all_titles a{
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <a href="{% url 'users:logout'%}">Logout</a>
+
+            <a href='{% url "books:add"%}'>Add book and review</a>
+        </div>
+        <h1>Welcome {{request.session.username}}</h1>
+        <div class="recent">
+            {% for review in reviews|slice:":3" %}
+            <h4><a href='{% url "books:books"%}{{review.book.id}}'>{{review.book.title}}</a></h4>
+            <p>{{review.review}}</p><p>{{review.stars}} stars</p>
+            <p>User: {{review.user.alias}}</p>
+            <p>{{review.created_at}}</p>
+            {%endfor%}
+        </div>
+        <div class="all_titles">
+            <h1>More books with Reviews:</h1>
+            {% for title in books %}
+            <a href="{% url 'books:books'%}{{title.id}}">{{title.title}}</a>
+            {%endfor%}
+        </div>
+    </body>
+</html>

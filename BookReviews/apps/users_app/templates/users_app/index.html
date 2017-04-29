@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body>
+        <form action="{%url 'users:register'%}" method="post">
+        {%csrf_token%}
+            <fieldset>
+                <legend>Register</legend>
+                Name: <input type="text" name="name" value=""><br>
+                Alias: <input type="text" name="alias" value=""><br>
+                Email: <input type="text" name="email" value=""><br>
+                Password: <input type="password" name="password" value=""><br>
+                Confirm Password: <input type="password" name="password-confirmation" value=""><br>
+                <input type="submit" name="register" value="Register">
+            </fieldset>
+        </form>
+        <br><br>
+        <form action="{% url 'users:login'%}" method="post">
+            {%csrf_token%}
+            <fieldset>
+
+                <legend>Login</legend>
+                
+                Email: <input type="text" name="email" value=""><br>
+                Password: <input type="password" name="password" value=""><br>
+
+                <input type="submit" name="register" value="Login">
+            </fieldset>
+        </form>
+        {%for message in messages%}
+        <p>{{message}}</p>
+        {%endfor%}
+    </body>
+</html>

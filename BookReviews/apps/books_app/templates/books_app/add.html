@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1> Add a book and review</h1>
+        <form action="{% url 'books:addBook' %}" method = 'post'>
+            {% csrf_token %}
+            <input type="hidden" name = 'user' value= '{{request.session.user_id}}'>
+            <input type="text" name="title" value="">
+            <select name="author-select">
+
+                {% for author in authors %}
+                <option value="{{author.name}}">{{author.name}}</option>
+                {%endfor%}
+            </select>
+            <input type="text" name="author" value="">
+            <textarea rows="3" cols="15" name = 'review'></textarea>
+            <select name="stars">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <input type="submit" name="submit" value="Submit">
+        </form>
+    </body>
+</html>
