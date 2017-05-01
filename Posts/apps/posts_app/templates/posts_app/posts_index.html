@@ -1,0 +1,9 @@
+
+{% for error in messages%}
+            <p class="alert alert-warning">{{error}}</p>
+            {%endfor%}
+<div class="row notes">
+    {% for note in notes %}
+        <div class="col-xs-2 note"><p>{{note.note}}</p></div>
+    {% endfor %}
+</div>
